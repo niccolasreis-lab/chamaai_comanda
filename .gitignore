@@ -1,0 +1,25 @@
+﻿# Laravel / Tauri
+/vendor
+/node_modules
+/.env
+.env.backup
+*.log
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*
+# Tauri / Rust
+/src-tauri/target
+dist/
+# Docker / DB
+/mysql_data
+*.sql.gz
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# SSH keys - nunca commitar
+*.pem
+id_ed25519*
