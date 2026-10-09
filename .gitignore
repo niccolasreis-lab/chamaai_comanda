@@ -1,17 +1,19 @@
 ﻿# Laravel / Tauri
-/vendor
-/node_modules
-/.env
-.env.backup
+**/vendor/
+**/node_modules/
+.env
+.env.*
+!.env.example
 *.log
-storage/logs/*
-storage/framework/cache/*
-storage/framework/sessions/*
-storage/framework/views/*
-bootstrap/cache/*
+api/storage/logs/*
+api/storage/framework/cache/*
+api/storage/framework/sessions/*
+api/storage/framework/views/*
+api/bootstrap/cache/*
+api/database/database.sqlite
 # Tauri / Rust
-/src-tauri/target
-dist/
+desktop/src-tauri/target/
+desktop/dist/
 # Docker / DB
 /mysql_data
 *.sql.gz

@@ -1,0 +1,33 @@
+name: Desktop Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm ci
+        working-directory: desktop
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: desktop
+          tagName: app-v__VERSION__
+          releaseName: Chama Ai Comanda v__VERSION__
+          releaseBody: Instalador Windows do PDV Chama Ai Comanda.
+          releaseDraft: true
+          prerelease: false
